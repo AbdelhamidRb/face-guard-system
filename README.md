@@ -20,14 +20,31 @@ Système complet de contrôle d'accès biométrique par reconnaissance faciale d
   - Extraction de descripteurs profonds 4096-D (couche `fc1`).
   - Normalisation L2 et similarité cosinus.
   - Validation par banc de tests unitaires (`tests/test_milestone1.py`).
-- [ ] **Jalon 2 : Détection en temps réel & isolation du visage**
+- [x] **Jalon 2 : Détection en temps réel & isolation du visage**
+  - Intégration de Haar Cascade frontal (`models/haarcascade_frontalface_default.xml`).
+  - Ciblage automatique du visage principal (surface maximale).
+  - Découpage sécurisé avec marge de sécurité (*padding*).
+  - Script temps réel webcam avec PiP et affichage FPS (`tests/test_milestone2_webcam.py`).
+  - Validation par banc de tests unitaires et intégration (`tests/test_milestone2.py`).
 - [ ] **Jalon 3 : Module d'enrôlement & comparaison avec seuil**
 - [ ] **Jalon 4 : Interface utilisateur finale (Tkinter)**
 
 ---
 
-## 🧪 Exécution des tests du Jalon 1
+## 🧪 Exécution des tests
 
+### Tests unitaires Jalon 1 (Extraction VGG-16) :
 ```bash
 python tests/test_milestone1.py
 ```
+
+### Tests unitaires Jalon 2 (Détection & isolation) :
+```bash
+python tests/test_milestone2.py
+```
+
+### Démo flux webcam temps réel (Jalon 2) :
+```bash
+python tests/test_milestone2_webcam.py
+```
+*(Appuyez sur `q` pour quitter ou `s` pour enregistrer un visage capturé)*
