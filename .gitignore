@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project FaceGuard specific
+.keras/
+data/
+*.h5
