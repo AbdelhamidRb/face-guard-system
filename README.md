@@ -8,7 +8,7 @@ Système complet de contrôle d'accès biométrique par reconnaissance faciale d
 - **Haar Cascades** : Détection et recadrage du visage principal.
 - **TensorFlow / Keras (VGG-16)** : Extraction de vecteurs d'embeddings (4096 dimensions via la couche dense `fc1` pré-entraînée sur ImageNet).
 - **Similarité Cosinus** : Mesure de distance/similarité biométrique avec seuil ajustable.
-- **Stockage JSON** : Base de données locale des signatures d'utilisateurs.
+- **Stockage JSON** : Base de données locale des signatures d'utilisateurs (`data/users.json`).
 - **Tkinter** : Interface graphique interactive avec retour visuel d'accès (Vert/Rouge).
 
 ---
@@ -26,7 +26,12 @@ Système complet de contrôle d'accès biométrique par reconnaissance faciale d
   - Découpage sécurisé avec marge de sécurité (*padding*).
   - Script temps réel webcam avec PiP et affichage FPS (`tests/test_milestone2_webcam.py`).
   - Validation par banc de tests unitaires et intégration (`tests/test_milestone2.py`).
-- [ ] **Jalon 3 : Module d'enrôlement & comparaison avec seuil**
+- [x] **Jalon 3 : Module d'enrôlement & comparaison avec seuil**
+  - Base de données locale JSON persistante (`core/database.py`).
+  - Algorithme de comparaison cosinus avec seuil de similarité (`core/matcher.py`).
+  - Système double d'enrôlement : capture webcam directe ou fichier image (`core/enrollment.py`).
+  - Statuts d'accès formels : **« Autorisée »** vs **« Refusée »**.
+  - Validation par banc de tests unitaires et fonctionnels (`tests/test_milestone3.py`).
 - [ ] **Jalon 4 : Interface utilisateur finale (Tkinter)**
 
 ---
@@ -47,4 +52,8 @@ python tests/test_milestone2.py
 ```bash
 python tests/test_milestone2_webcam.py
 ```
-*(Appuyez sur `q` pour quitter ou `s` pour enregistrer un visage capturé)*
+
+### Tests unitaires Jalon 3 (Enrôlement, JSON & matching) :
+```bash
+python tests/test_milestone3.py
+```
